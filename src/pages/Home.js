@@ -1,10 +1,13 @@
 import React from 'react'
+import Search from "../components/Search"
+import Cocktails from "../components/CocktailList"
 
 function Home() {
     return (
-        <div>
-            <h1>hi</h1>
-        </div>
+        <main>
+            <Search></Search>
+            <Cocktails></Cocktails>
+        </main>
     )
 }
 

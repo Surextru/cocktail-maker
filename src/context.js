@@ -1,40 +1,64 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from "react";
 
-const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?";
+const urlSearchByName =
+  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const CocktailContext = React.createContext();
 
-const ContextProvider = ({children}) => {
-    const [loading, setLoading] = useState(false);
-    const [search, setSearch] = useState("a");
-    const [cocktails, setCocktails] = useState([]);
+const ContextProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("a");
+  const [cocktails, setCocktails] = useState([]);
 
-    const fetchByName = async () => {
-        try {
-            const response = fetch(`${url}${search}`);
-            const drinksData = await response.json();
-            console.log(drinksData);
-
-        } catch (error) {
-            console.error(error);
-            setLoading(false);
-        }
+  const fetchByName = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${urlSearchByName}${search}`);
+      const drinksData = await response.json();
+      const { drinks } = drinksData;
+      console.log(drinks);
+      if (drinksData) {
+        const newContails = drinks.map((drink) => {
+          //for each drink destructure in main attributes:
+          const { idDrink, strAlcoholic, strDrink, strDrinkThumb, strGlass } =
+            drink;
+          // and return with renamed attributes (only pick the needed ones)
+          return {
+            id: idDrink,
+            info: strAlcoholic,
+            name: strDrink,
+            image: strDrinkThumb,
+            glass: strGlass,
+          };
+        });
+        setCocktails(newContails);
+      } else {
+        setCocktails([]);
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
     }
+  };
 
-    // 
-    useEffect(()=>{
-        fetchByName();
-    }, [search])
+  //
+  useEffect(() => {
+    fetchByName();
+  }, [search]);
 
-    return <CocktailContext.Provider value={loading}></CocktailContext.Provider>
-}
+  return (
+    <CocktailContext.Provider value={{ cocktails, setSearch, loading }}>
+      {children}
+    </CocktailContext.Provider>
+  );
+};
 
 // export useGlobalContext and return the useContext
 // with the created context
-export const useGlobalContext = () =>{
-    return useContext(CocktailContext);
-}
+export const useGlobalContext = () => {
+  return useContext(CocktailContext);
+};
 
 // export the created context and provider
-export {CocktailContext, ContextProvider};
-
+export { CocktailContext, ContextProvider };

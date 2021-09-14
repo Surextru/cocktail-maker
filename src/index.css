@@ -3,6 +3,9 @@
   --mainTransition: all 0.3s ease;
   --mainBackground: #f1f5f8;
   --mainBlack: #222;
+
+
+  --globalWidth: 85vw;
 }
 /* goblal style */
 *{
@@ -56,8 +59,7 @@ img {
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  width: 1170px;
-  max-width:  90vw;
+  width: var(--globalWidth);
   border-bottom: 2px solid black;
 }
 .navbar-links{
@@ -69,10 +71,10 @@ img {
   display: inline-block;
   margin-right: 0.5rem;
   text-transform: capitalize;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-weight: bold;
   letter-spacing: 0.15rem;
-  padding:0.25rem 0.5rem;
+  padding: 0.25rem 0.5rem;
   transition: var(--mainTransition);
 }
 .navbar-links a:hover{
@@ -80,5 +82,5 @@ img {
   color:rgb(118, 173, 173);
 }
 .logo{
-  width: 10rem;
+  width: 12rem;
 }
