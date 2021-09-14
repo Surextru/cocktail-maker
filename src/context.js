@@ -16,7 +16,8 @@ const ContextProvider = ({ children }) => {
       const response = await fetch(`${urlSearchByName}${search}`);
       const drinksData = await response.json();
       const { drinks } = drinksData;
-      console.log(drinks);
+
+
       if (drinksData) {
         const newContails = drinks.map((drink) => {
           //for each drink destructure in main attributes:
@@ -32,10 +33,13 @@ const ContextProvider = ({ children }) => {
           };
         });
         setCocktails(newContails);
-      } else {
+      } 
+      
+      else {
         setCocktails([]);
       }
       setLoading(false);
+
     } catch (error) {
       console.error(error);
       setLoading(false);
