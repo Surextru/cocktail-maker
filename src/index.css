@@ -1,20 +1,21 @@
 /* variables */
-:root{
+:root {
   --mainTransition: all 0.3s ease;
   --mainBackground: #f1f5f8;
   --mainBlack: #222;
-
+  --mainLetterSpacing: 0.2rem;
 
   --globalWidth: 85vw;
 }
 /* goblal style */
-*{
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-}body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: var(--mainBlack);
   background: var(--mainBackground);
   line-height: 1.4;
@@ -46,41 +47,195 @@ img {
   display: block;
 }
 
+/* buttons */
+.btn {
+  background: rgb(118, 173, 173);
+  padding: 1em;
+  /* margin: 1em auto; */
+  width: 100%;
+  text-transform: uppercase;
+  display:inline-block;
+  cursor:pointer;
+  color:white;
+  text-align: center;
+  font-weight: bolder;
+}
+.btn:hover{
+  background: rgb(59, 102, 102)
+}
 
 /* navbar */
-.navbar{
-  display:flex;
+.navbar {
+  display: flex;
   align-items: center;
-  /* border: 2px solid black */
-
 }
-.navbar-center{
-  display:flex;
+.navbar-center {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
   width: var(--globalWidth);
   border-bottom: 2px solid black;
 }
-.navbar-links{
+.navbar-links {
   display: flex;
   align-items: center;
 }
-
 .navbar-links a {
   display: inline-block;
   margin-right: 0.5rem;
   text-transform: capitalize;
   font-size: 1.2em;
   font-weight: bold;
-  letter-spacing: 0.15rem;
+  letter-spacing: var(--mainLetterSpacing);
   padding: 0.25rem 0.5rem;
   transition: var(--mainTransition);
 }
-.navbar-links a:hover{
+.navbar-links a:hover {
   text-shadow: 0px 0px 15px rgb(158, 158, 158);
-  color:rgb(118, 173, 173);
+  color: rgb(118, 173, 173);
 }
-.logo{
+.logo {
   width: 12rem;
+}
+
+/* saerchform */
+.search-section {
+  margin: 2rem;
+}
+.search-form {
+  width: var(--globalWidth);
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  text-transform: capitalize;
+}
+.form-control label {
+  letter-spacing: var(--mainLetterSpacing);
+  margin-right: 1rem;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+.form-control input {
+  width: 100%;
+  border: none;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+/* cocktail list*/
+.title-section {
+  letter-spacing: var(--mainLetterSpacing);
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  margin: 2rem 2rem;
+}
+.cocktail-list-section {
+  width: var(--globalWidth);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* cocktail card */
+.cocktailcard {
+  grid-template-rows: auto 1fr;
+  width: 80vw;
+  align-content: center;
+  margin-bottom: 2rem;
+}
+
+.cocktailcard-image,
+.cocktailcard-info {
+  margin: 1.4rem;
+}
+@media screen and (min-width: 560px) {
+  .cocktail-list-section {
+    width: var(--globalWidth);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* cocktail card */
+  .cocktailcard {
+    width: 41vw;
+    align-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .cocktailcard:hover {
+    box-shadow: 0px 0px 15px rgb(158, 158, 158);
+    color: rgb(118, 173, 173);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .cocktail-list-section {
+    width: var(--globalWidth);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* cocktail card */
+  .cocktailcard {
+    width: 25vw;
+    align-content: center;
+    margin-bottom: 2rem;
+  }
+}
+
+/* single cocktail page */
+
+/* about */
+
+/* error */
+
+/* loader */
+
+
+
+
+/* MEDIA */
+@media screen and (min-width: 560px) {
+  .cocktail-list-section {
+    width: var(--globalWidth);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* cocktail card */
+  .cocktailcard {
+    width: 41vw;
+    align-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .cocktailcard:hover {
+    box-shadow: 0px 0px 15px rgb(158, 158, 158);
+    color: rgb(118, 173, 173);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .cocktail-list-section {
+    width: var(--globalWidth);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* cocktail card */
+  .cocktailcard {
+    width: 25vw;
+    align-content: center;
+    margin-bottom: 2rem;
+  }
 }

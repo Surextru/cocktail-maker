@@ -14,7 +14,7 @@ function CocktailList() {
 
   return (
     <div className="main-section">
-      <h2 className="title-section">Cocktails</h2>
+      <h2 className="title-section">Cocktail List</h2>
       <div className="cocktail-list-section">
         {cocktails.map((cocktail) => {
           return <Cocktail key={cocktail.id} {...cocktail}></Cocktail>;

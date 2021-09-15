@@ -26,7 +26,6 @@ function Search() {
             type="text"
             id="search"
             placeholder="Eg:blue"
-            className="search-input"
             ref={searchTerm}
             onChange={searchCocktail}
           />
