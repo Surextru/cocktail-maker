@@ -14,9 +14,9 @@ function SingleCocktail() {
     try {
       const response = await fetch(`${urlByID}${id}`);
       const SingleCocktail = await response.json();
-      const { drink } = SingleCocktail;
-
-      if (drink) {
+      const { drinks } = SingleCocktail;
+      // console.log(SingleCocktail);
+      if (drinks) {
         const {
           strAlcoholic,
           strCategory,
@@ -31,7 +31,15 @@ function SingleCocktail() {
           strIngredient5,
           strIngredient6,
           strIngredient7,
-        } = drink[0];
+          strMeasure1,
+          strMeasure2,
+          strMeasure3,
+          strMeasure4,
+          strMeasure5,
+          strMeasure6,
+          strMeasure7,
+        } = drinks[0];
+
         const ingredients = [
           strIngredient1,
           strIngredient2,
@@ -40,6 +48,15 @@ function SingleCocktail() {
           strIngredient5,
           strIngredient6,
           strIngredient7,
+        ];
+        const measures = [
+          strMeasure1,
+          strMeasure2,
+          strMeasure3,
+          strMeasure4,
+          strMeasure5,
+          strMeasure6,
+          strMeasure7,
         ];
 
         const newCocktail = {
@@ -50,6 +67,7 @@ function SingleCocktail() {
           glass: strGlass,
           instructions: strInstructions,
           ingredients: ingredients,
+          measures: measures,
         };
         setCocktailInfo(newCocktail);
       } else {
@@ -61,6 +79,7 @@ function SingleCocktail() {
       setLoading(false);
     }
   };
+  // console.log(cocktailInfo);
 
   useEffect(() => {
     fetchById();
@@ -73,17 +92,25 @@ function SingleCocktail() {
     return <h2 className="section-title">Not found</h2>;
   }
 
-  const { info, category, name, image, glass, instructions, ingredients } =
-    cocktailInfo;
-  return <section className="singelCocktail-section">
+  const {
+    info,
+    category,
+    name,
+    image,
+    glass,
+    instructions,
+    ingredients,
+    measures,
+  } = cocktailInfo;
+  return (
+    <section className="singelCocktail-section">
+      <Link className="btn" to="/">
+        Back to home
+      </Link>
       <h2>{name}</h2>
       <div className="singleCoctail">
-        <img src={image} alt={name} className="image"/>
+        <img src={image} alt={name} className="image" />
         <div className="singleCocktail-info">
-        <p>
-            <span className="drink-data">name:</span>
-            {name}
-          </p>
           <p>
             <span className="drink-data">Category:</span>
             {category}
@@ -101,14 +128,17 @@ function SingleCocktail() {
             {instructions}
           </p>
           <p>
-            <span className="drink-data">ingredients:</span>
-            {ingredients.map((item, index )=>{
-              return item ? <span key={index}>{item}</span>: null;
-            })}
+            <span className="drink-data">ingredients &amp; measures:</span>
+            {ingredients &&
+              ingredients.map((item, index) => {
+                let measure = measures.find((m, indexme) => indexme === index)
+                return item ? <span key={index}> {`${measure ? measure : null}`} of {item} </span> : null;
+              })}
           </p>
         </div>
       </div>
-  </section>;
+    </section>
+  );
 }
 
 export default SingleCocktail;
