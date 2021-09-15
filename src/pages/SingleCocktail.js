@@ -103,40 +103,43 @@ function SingleCocktail() {
     measures,
   } = cocktailInfo;
   return (
-    <section className="singelCocktail-section">
-      <Link className="btn" to="/">
-        Back to home
-      </Link>
-      <h2>{name}</h2>
-      <div className="singleCoctail">
-        <img src={image} alt={name} className="image" />
-        <div className="singleCocktail-info">
+    <section className="singlecocktail-section">
+      <h2 className="title-section">{name}</h2>
+      <div className="singlecocktail">
+        <img src={image} alt={name} className="singlecocktail-image" />
+        <div className="singlecocktail-info">
           <p>
-            <span className="drink-data">Category:</span>
+            <span className="singlecocktail-data">category: </span>
             {category}
           </p>
           <p>
-            <span className="drink-data">info:</span>
+            <span className="singlecocktail-data">info: </span>
             {info}
           </p>
           <p>
-            <span className="drink-data">glass:</span>
+            <span className="singlecocktail-data">glass: </span>
             {glass}
           </p>
           <p>
-            <span className="drink-data">instructions:</span>
+            <span className="singlecocktail-data">instructions: </span>
             {instructions}
           </p>
           <p>
-            <span className="drink-data">ingredients &amp; measures:</span>
-            {ingredients &&
+            <span className="singlecocktail-data">ingredients &amp; measures: </span>
+              <ul>
+              {ingredients &&
               ingredients.map((item, index) => {
                 let measure = measures.find((m, indexme) => indexme === index)
-                return item ? <span key={index}> {`${measure ? measure : null}`} of {item} </span> : null;
+                return item ? <li key={index}> {`${measure ? measure : null}`} of {item} </li> : null;
               })}
+              </ul>
           </p>
         </div>
+        
       </div>
+      <Link className="singlecocktail-btn btn" to="/">
+        Back to home
+      </Link>
     </section>
   );
 }

@@ -33,7 +33,7 @@ h6 {
   letter-spacing: var(--mainSpacing);
 }
 p {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 ul {
   list-style-type: none;
@@ -59,6 +59,8 @@ img {
   color:white;
   text-align: center;
   font-weight: bolder;
+  letter-spacing: var(--mainLetterSpacing);
+  transition: var(--mainTransition);
 }
 .btn:hover{
   background: rgb(59, 102, 102)
@@ -128,7 +130,7 @@ img {
   text-align: center;
   font-size: 2.5rem;
   text-transform: capitalize;
-  margin: 2rem 2rem;
+  margin: 1rem 2rem;
 }
 .cocktail-list-section {
   width: var(--globalWidth);
@@ -150,46 +152,28 @@ img {
 .cocktailcard-info {
   margin: 1.4rem;
 }
-@media screen and (min-width: 560px) {
-  .cocktail-list-section {
-    width: var(--globalWidth);
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  /* cocktail card */
-  .cocktailcard {
-    width: 41vw;
-    align-content: center;
-    margin-bottom: 2rem;
-  }
-
-  .cocktailcard:hover {
-    box-shadow: 0px 0px 15px rgb(158, 158, 158);
-    color: rgb(118, 173, 173);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .cocktail-list-section {
-    width: var(--globalWidth);
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  /* cocktail card */
-  .cocktailcard {
-    width: 25vw;
-    align-content: center;
-    margin-bottom: 2rem;
-  }
-}
-
 /* single cocktail page */
+.singlecocktail-section{
+  width: var(--globalWidth);
+  margin: 1rem auto;
+}
+.singlecocktail-image, .singlecocktail-info{
+  width:80vw;
+  margin:0 auto;
+}
+
+.singlecocktail-info{
+  padding-top: 1em;
+}
+.singlecocktail-info p{
+  letter-spacing: 0.07rem;
+}
+.singlecocktail-data{
+  text-transform: capitalize;
+  font-weight: bolder;
+  letter-spacing: 0.13rem;
+}
+
 
 /* about */
 
@@ -215,6 +199,7 @@ img {
     width: 41vw;
     align-content: center;
     margin-bottom: 2rem;
+    transition: var(--mainTransition);
   }
 
   .cocktailcard:hover {
