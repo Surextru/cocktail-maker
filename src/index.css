@@ -168,7 +168,40 @@ img {
   text-align: center;
 }
 
-/* loader */
+/* loader (glass of water) */
+
+.loading {
+  position: relative;
+  width: 11rem;
+  height: 9.5rem;
+  margin: 5rem auto;
+  border: 0.3rem solid white;
+  border-top: 0.3rem transparent;
+  border-bottom: 2rem solid white;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.212);
+}
+.loading::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  background: rgba(207, 147, 35, 0.596);
+  bottom: 0px;
+  -webkit-animation: loading 3s infinite linear;
+  animation: loading 3s infinite linear;
+}
+.loading::after {
+  content: "";
+  position: absolute;
+  width: 4.3rem;
+  height: 3.3rem;
+  background: rgba(255, 255, 255, 0.6);
+  bottom: 0px;
+  right: 2rem;
+  border-radius: 3px;
+  -webkit-animation: glass 3s infinite ease-in;
+  animation: glass 3s infinite ease-in;
+}
 
 /* single cocktail page */
 .singlecocktail-section {
@@ -209,6 +242,7 @@ img {
 }
 .about-page p {
   font-size: 1.2em;
+  text-align: center;
 }
 /* error page*/
 .error-page {
@@ -221,6 +255,7 @@ img {
   .navbar {
     position: sticky;
     top: 0;
+    margin-bottom: 5rem;
   }
   .navbar-center {
     justify-content: space-around;
@@ -254,14 +289,6 @@ img {
     justify-content: space-around;
     box-shadow: 0px 7px 14px -10px #000000;
   }
-  .cocktail-list-section {
-    width: var(--globalWidth);
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
   /* cocktail card */
   .cocktailcard {
     width: 25vw;
@@ -308,5 +335,83 @@ img {
     width: 40%;
     margin: 0 auto;
     height: 100%;
+  }
+
+  /* cocktail list */
+  .main-section {
+    margin-top: 3rem;
+  }
+  .cocktail-list-section {
+    width: var(--globalWidth);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+
+  /* single cocktail page */
+  .singlecocktail-section {
+    margin: 2rem auto;
+  }
+  .singlecocktail {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .singlecocktail-image{
+    margin-right: 3rem;
+  }
+  .singlecocktail-image,
+  .singlecocktail-info {
+    width: 30rem;
+  }
+  .singlecocktail-info {
+    margin: 2rem auto;
+  }
+  .singlecocktail-btn {
+    margin-top: 3rem;
+  }
+}
+/* glass of water */
+@keyframes loading {
+  0% {
+    height: 0%;
+  }
+  20% {
+    height: 10%;
+  }
+  40% {
+    height: 20%;
+  }
+  60% {
+    height: 30%;
+  }
+  80% {
+    height: 40%;
+  }
+  100% {
+    height: 50%;
+  }
+}
+
+@keyframes glass {
+  0% {
+    bottom: 0;
+  }
+  20% {
+    bottom: 0;
+  }
+  40% {
+    bottom: 0;
+  }
+  60% {
+    bottom: 0;
+  }
+  80% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: 20px;
   }
 }

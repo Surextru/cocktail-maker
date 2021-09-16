@@ -137,11 +137,11 @@ function SingleCocktail() {
                 ) : null;
               })}
           </ul>
+          <Link className="singlecocktail-btn btn" to="/">
+            Back to home
+          </Link>
         </div>
       </div>
-      <Link className="singlecocktail-btn btn" to="/">
-        Back to home
-      </Link>
     </section>
   );
 }

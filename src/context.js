@@ -6,7 +6,7 @@ const urlSearchByName =
 const CocktailContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("a");
   const [cocktails, setCocktails] = useState([]);
 
