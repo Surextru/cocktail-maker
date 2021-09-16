@@ -79,7 +79,6 @@ function SingleCocktail() {
       setLoading(false);
     }
   };
-  // console.log(cocktailInfo);
 
   useEffect(() => {
     fetchById();
@@ -104,7 +103,7 @@ function SingleCocktail() {
   } = cocktailInfo;
   return (
     <section className="singlecocktail-section">
-      <h2 className="title-section">{name}</h2>
+      <h3 className="title-section">{name}</h3>
       <div className="singlecocktail">
         <img src={image} alt={name} className="singlecocktail-image" />
         <div className="singlecocktail-info">
@@ -124,18 +123,21 @@ function SingleCocktail() {
             <span className="singlecocktail-data">instructions: </span>
             {instructions}
           </p>
-          <p>
-            <span className="singlecocktail-data">ingredients &amp; measures: </span>
-              <ul>
-              {ingredients &&
+          <span className="singlecocktail-data">
+            ingredients &amp; measures:{" "}
+          </span>
+          <ul className="singlecocktail-ingredients">
+            {ingredients &&
               ingredients.map((item, index) => {
-                let measure = measures.find((m, indexme) => indexme === index)
-                return item ? <li key={index}> {`${measure ? measure : null}`} of {item} </li> : null;
+                let measure = measures.find((m, indexme) => indexme === index);
+                return item ? (
+                  <li key={index}>
+                    {`${measure ? measure + " of" : ""}`} {item}
+                  </li>
+                ) : null;
               })}
-              </ul>
-          </p>
+          </ul>
         </div>
-        
       </div>
       <Link className="singlecocktail-btn btn" to="/">
         Back to home

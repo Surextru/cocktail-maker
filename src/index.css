@@ -4,8 +4,9 @@
   --mainBackground: #f1f5f8;
   --mainBlack: #222;
   --mainLetterSpacing: 0.2rem;
-
+  --secondaryLetterSpacing: 0.07rem;
   --globalWidth: 85vw;
+  --fontSize: 1.3rem;
 }
 /* goblal style */
 * {
@@ -21,6 +22,7 @@ body {
   line-height: 1.4;
   font-size: 1rem;
   font-weight: 300;
+  position: relative;
 }
 h1,
 h2,
@@ -29,7 +31,7 @@ h4,
 h5,
 h6 {
   font-family: var(--slantedFont);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   letter-spacing: var(--mainSpacing);
 }
 p {
@@ -51,46 +53,40 @@ img {
 .btn {
   background: rgb(118, 173, 173);
   padding: 1em;
-  /* margin: 1em auto; */
   width: 100%;
   text-transform: uppercase;
-  display:inline-block;
-  cursor:pointer;
-  color:white;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
   text-align: center;
   font-weight: bolder;
   letter-spacing: var(--mainLetterSpacing);
   transition: var(--mainTransition);
 }
-.btn:hover{
-  background: rgb(59, 102, 102)
+.btn:hover {
+  background: rgb(59, 102, 102);
 }
 
 /* navbar */
 .navbar {
-  display: flex;
-  align-items: center;
+  background: var(--mainBackground);
 }
 .navbar-center {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin: 0 auto;
   width: var(--globalWidth);
-  border-bottom: 2px solid black;
 }
 .navbar-links {
   display: flex;
   align-items: center;
+  margin-right: 1rem;
 }
 .navbar-links a {
-  display: inline-block;
-  margin-right: 0.5rem;
   text-transform: capitalize;
   font-size: 1.2em;
   font-weight: bold;
   letter-spacing: var(--mainLetterSpacing);
-  padding: 0.25rem 0.5rem;
   transition: var(--mainTransition);
 }
 .navbar-links a:hover {
@@ -98,29 +94,38 @@ img {
   color: rgb(118, 173, 173);
 }
 .logo {
-  width: 12rem;
+  width: 9rem;
 }
 
 /* saerchform */
 .search-section {
-  margin: 2rem;
+  margin-top: 1rem;
 }
 .search-form {
   width: var(--globalWidth);
   margin: 0 auto;
-  padding: 2rem 2.5rem;
+  padding: 1.5rem 2.5rem;
   text-transform: capitalize;
 }
+.search-form p {
+  text-align: center;
+  margin-top: 1.3rem;
+  display: block;
+  font-weight: bold;
+  font-size: var(--fontSize);
+}
+
 .form-control label {
   letter-spacing: var(--mainLetterSpacing);
-  margin-right: 1rem;
-  font-size: 1.6em;
+  font-size: var(--fontSize);
   font-weight: bold;
+  display: block;
+  text-align: center;
 }
 .form-control input {
   width: 100%;
   border: none;
-  height: 2rem;
+  height: 2.5rem;
   margin-top: 1rem;
 }
 
@@ -128,7 +133,7 @@ img {
 .title-section {
   letter-spacing: var(--mainLetterSpacing);
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-transform: capitalize;
   margin: 1rem 2rem;
 }
@@ -152,40 +157,75 @@ img {
 .cocktailcard-info {
   margin: 1.4rem;
 }
+
+/* randomcocktail*/
+.randomcocktail {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+.randomcocktail h3 {
+  text-align: center;
+}
+
+/* loader */
+
 /* single cocktail page */
-.singlecocktail-section{
+.singlecocktail-section {
   width: var(--globalWidth);
   margin: 1rem auto;
 }
-.singlecocktail-image, .singlecocktail-info{
-  width:80vw;
-  margin:0 auto;
+.singlecocktail-image,
+.singlecocktail-info {
+  width: 80vw;
+  margin: 0 auto;
 }
 
-.singlecocktail-info{
+.singlecocktail-info {
   padding-top: 1em;
 }
-.singlecocktail-info p{
-  letter-spacing: 0.07rem;
+.singlecocktail-info p {
+  letter-spacing: var(--secondaryLetterSpacing);
 }
-.singlecocktail-data{
+.singlecocktail-data {
   text-transform: capitalize;
   font-weight: bolder;
   letter-spacing: 0.13rem;
 }
+.singlecocktail-ingredients {
+  letter-spacing: var(--secondaryLetterSpacing);
+  margin-bottom: 0.6rem;
+}
 
-
-/* about */
-
-/* error */
-
-/* loader */
-
-
-
+/* about page */
+.about-page {
+  width: var(--globalWidth);
+  margin: 1em auto;
+}
+.about-page h2 {
+  font-size: 2rem;
+  letter-spacing: var(--mainLetterSpacing);
+  text-align: center;
+}
+.about-page p {
+  font-size: 1.2em;
+}
+/* error page*/
+.error-page {
+  width: var(--globalWidth);
+  margin: 0 auto;
+}
 
 /* MEDIA */
 @media screen and (min-width: 560px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+  }
+  .navbar-center {
+    justify-content: space-around;
+    box-shadow: 0px 7px 14px -10px #000000;
+  }
   .cocktail-list-section {
     width: var(--globalWidth);
     margin: 0 auto;
@@ -209,12 +249,17 @@ img {
 }
 
 @media screen and (min-width: 900px) {
+  /* navbar */
+  .navbar-center {
+    justify-content: space-around;
+    box-shadow: 0px 7px 14px -10px #000000;
+  }
   .cocktail-list-section {
     width: var(--globalWidth);
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   /* cocktail card */
@@ -222,5 +267,46 @@ img {
     width: 25vw;
     align-content: center;
     margin-bottom: 2rem;
+  }
+
+  /* search and random */
+  .search-form {
+    width: var(--globalWidth);
+    margin: 0 auto;
+    padding: 1.5rem 2.5rem;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: space-around;
+  }
+  .search-form p {
+    text-transform: capitalize;
+    letter-spacing: var(--mainLetterSpacing);
+    font-size: 1.3em;
+    font-weight: bold;
+    display: block;
+    margin-top: 0.7rem;
+  }
+  .form-control {
+    width: 45%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  .form-control label {
+    letter-spacing: var(--mainLetterSpacing);
+    margin-right: 1rem;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0.7rem 1rem 0 0;
+    display: block;
+  }
+  .form-control input {
+    height: 96.7%;
+    margin: 0 auto;
+  }
+  .randomcocktail {
+    width: 40%;
+    margin: 0 auto;
+    height: 100%;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useGlobalContext } from "../context";
+import RandomCocktail from "./RandomCocktail";
 
 function Search() {
   const { setSearch } = useGlobalContext();
@@ -10,8 +11,8 @@ function Search() {
   };
 
   useEffect(() => {
-      searchTerm.current.focus();
-  }, [])
+    searchTerm.current.focus();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ function Search() {
     <div className="search-section">
       <form className="search-form" onSubmit={handleSubmit}>
         <div className="form-control">
-          <label htmlFor="name"> Cocktail</label>
+          <label htmlFor="name">Search</label>
           <input
             type="text"
             id="search"
@@ -30,7 +31,10 @@ function Search() {
             onChange={searchCocktail}
           />
         </div>
+        <p>or</p>
+        <RandomCocktail></RandomCocktail>
       </form>
+
     </div>
   );
 }

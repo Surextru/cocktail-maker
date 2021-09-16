@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <Router>
-      {/* <Navbar></Navbar> */}
+      <Navbar/>
       <Switch>
         <Route exact path="/">
           <Home></Home>
